@@ -1,0 +1,379 @@
+/* General styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif, Martian Mono;
+}
+
+/* LOGIN MODALS SHOP NOW  */
+
+/* Section styling */
+.vault-section {
+    background-image: url("/img/rek.jpg"); /* Set your image URL */
+    background-size: cover; /* or 'contain' if needed */
+    background-position: center;
+    width: 100%;
+    position: relative; /* Make section the relative parent */
+    height: auto; /* Ensure it adjusts according to the content */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.vault-section img {
+    max-width: 100%; /* Prevent images from overflowing */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Overlay for the section */
+.vault-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay hitam transparan */
+    z-index: 1;
+}
+
+.vault-section .row {
+    position: relative;
+    z-index: 2; /* Konten berada di atas overlay */
+}
+
+/* Title and description styling */
+.vault-section h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.vault-section p.lead {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Button */
+.vault-section a.btn {
+    border-radius: 25px;
+}
+
+/* Navigation styles */
+.nav-link {
+    transition: color 0.3s ease, background-color 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* Hover effect for nav links */
+.nav-link:hover {
+    color: orange; /* Change text color on hover */
+    border-radius: 5px; /* Add slight rounding on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    /* Adjust the header for small screens */
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .col-md-3 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Adjust the logo size */
+    header img {
+        width: 150px;
+        height: auto;
+    }
+
+    /* Section adjustments */
+    .vault-section {
+        padding: 3rem 1rem;
+        height: auto; /* Auto height for smaller screens */
+    }
+
+    .vault-section h1 {
+        font-size: 2.5rem; /* Make title smaller on small screens */
+    }
+
+    .vault-section p.lead {
+        font-size: 1.2rem;
+    }
+
+    .vault-section .btn {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 576px) {
+    .vault-section h1 {
+        font-size: 2rem;
+    }
+
+    .vault-section p.lead {
+        font-size: 1rem;
+    }
+}
+
+/* SECTION 1 */
+.sec1 {
+    background-color: #f5f5f5;
+    padding: 5rem 0;
+    width: 100%;
+}
+
+/* SECTION 2 */
+.section2 {
+    background-color: #ffcf57; /* Yellow background */
+    padding: 0px 0; /* Vertical padding */
+    height: 80vh;
+}
+
+/* Icon styles */
+.icon {
+    max-width: 80px; /* Set a maximum width for icons */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px; /* Add horizontal margin between icons */
+}
+
+/* Centering and aligning icons */
+.row.justify-content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically centered */
+}
+
+/* Optional: Add styles for responsive design */
+@media (max-width: 576px) {
+    .icon {
+        max-width: 60px; /* Smaller icons for mobile devices */
+        margin: 0 8px; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (min-width: 576px) {
+    .icon {
+        max-width: 80px; /* Set a larger maximum width for larger screens */
+    }
+}
+
+/* SECTION 4 */
+/* Full-width section styling */
+.hanging-icons-section {
+    background-color: #ffcf57; /* Set background color */
+    padding: 0px 100px; /* Add vertical padding for the section */
+}
+
+/* Container adjustments */
+#hanging-icons {
+    max-width: none; /* Remove the max-width to make it full width */
+}
+
+/* Row adjustments */
+.row {
+    margin: 0; /* Reset row margin to avoid extra space */
+}
+
+/* Column adjustments */
+.col {
+    padding: 0 15px; /* Add horizontal padding to each column */
+}
+
+/* Text styles */
+h2 {
+    font-size: 1.5rem; /* Set a comfortable font size for the headings */
+    margin-bottom: 0.5rem; /* Add spacing below the heading */
+}
+
+p {
+    color: black;
+    margin: 0; /* Reset margin for paragraphs */
+    font-size: 1rem; /* Set a comfortable font size for paragraphs */
+}
+
+/* Additional padding for content */
+.d-flex {
+    padding: 20px; /* Add padding around the content inside each column */
+    /* Optional: Add a slight background to the content for better visibility */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hanging-icons-section {
+        padding: 30px 0; /* Reduce padding on smaller screens */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+    }
+
+    p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+}
+
+/* SECTION 7 */
+h1 {
+    font-size: 2.5rem; /* Larger font size for the main heading */
+    font-weight: bold; /* Make the heading bold */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.lead {
+    font-size: 1.25rem; /* Size for lead paragraph */
+    color: #888; /* Change color for lead text */
+    margin-bottom: 20px; /* Space below the lead paragraph */
+}
+
+.btn-warning {
+    background-color: #ffcf57; /* Set button color */
+    border: none; /* Remove border */
+}
+
+.bg-light {
+    background-color: #f8f9fa !important; /* Background color for sidebar */
+}
+
+.border {
+    border: 1px solid #dee2e6; /* Light border for the sidebar */
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+ul.list-unstyled {
+    padding-left: 0; /* Remove default padding */
+}
+
+ul.list-unstyled li {
+    margin-bottom: 0.5rem; /* Spacing between list items */
+}
+
+ul.list-unstyled a {
+    text-decoration: none; /* Remove underline from links */
+    color: #000; /* Link color */
+}
+
+ul.list-unstyled a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #ffbf00; /* Change link color on hover */
+}
+
+/* SECETION 5 */
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+.text-container {
+    padding-left: 20px; /* Adjust as needed for spacing */
+}
+
+h2,
+h3 {
+    color: #333; /* Change to your preferred color */
+}
+
+.btn {
+    border-radius: 25px; /* Rounded buttons */
+}
+
+.shop {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0; /* Space above and below */
+}
+
+.shop img {
+    max-width: 80px; /* Set image size */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.shop h3 {
+    font-size: 1.25rem; /* Heading font size */
+    margin: 0; /* Remove default margin */
+}
+
+.shop p {
+    font-size: 0.9rem; /* Paragraph font size */
+    margin: 0; /* Remove default margin */
+}
+
+.shop .btn {
+    background-color: #8ec3a4; /* Button color */
+    color: white; /* Button text color */
+    border-radius: 25px; /* Rounded corners */
+    font-size: 0.9rem; /* Button font size */
+    margin-left: -50px; /* Space between text and button */
+}
+
+/* CONTACT PAGE */
+.form-group {
+    margin-bottom: 20px; /* Jarak antar grup form */
+}
+
+.form-control {
+    border: 1px solid #ced4da; /* Border untuk input */
+    border-radius: 5px; /* Sudut melengkung */
+    padding: 12px; /* Padding untuk input */
+    width: 100%; /* Lebar penuh */
+    box-shadow: none; /* Menghilangkan bayangan default */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transisi untuk efek fokus */
+}
+
+.form-control:focus {
+    border-color: #3a9d5e; /* Warna border saat fokus */
+    box-shadow: 0 0 5px rgba(58, 157, 94, 0.5); /* Bayangan saat fokus */
+}
+
+textarea.form-control {
+    resize: vertical; /* Membolehkan resize vertikal */
+}
+
+.btn-primary {
+    background-color: #3a9d5e; /* Warna latar belakang tombol */
+    border: none; /* Menghilangkan border */
+    border-radius: 5px; /* Sudut melengkung */
+    padding: 12px 20px; /* Padding untuk tombol */
+    font-size: 16px; /* Ukuran font tombol */
+    color: white; /* Warna teks tombol */
+    transition: background-color 0.3s; /* Transisi untuk efek hover */
+}
+
+.btn-primary:hover {
+    background-color: #319d52; /* Warna latar belakang tombol saat hover */
+}
+
+.submitting {
+    display: none; /* Sembunyikan elemen ini secara default */
+}
+
+/* Pesan sukses dan peringatan */
+#form-message-warning,
+#form-message-success {
+    margin-top: 20px; /* Jarak atas untuk pesan */
+    font-weight: bold; /* Tebalkan font */
+}
+
+#form-message-success {
+    color: #28a745; /* Warna hijau untuk pesan sukses */
+}
+
+#form-message-warning {
+    color: #dc3545; /* Warna merah untuk pesan warning */
+}
