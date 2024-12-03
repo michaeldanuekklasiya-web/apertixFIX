@@ -319,7 +319,7 @@ h3 {
     color: white; /* Button text color */
     border-radius: 25px; /* Rounded corners */
     font-size: 0.9rem; /* Button font size */
-    margin-left: -50px; /* Space between text and button */
+    margin-left: 0px; /* Space between text and button */
 }
 
 /* CONTACT PAGE */

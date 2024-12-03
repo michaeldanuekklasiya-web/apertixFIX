@@ -23,33 +23,30 @@
     <div class="container">
         <header
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-4 mb-4 border-bottom">
+            <!-- Logo -->
             <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img src="img/LogoItem.png" alt="">
+                <img src="img/LogoItem.png" alt="Logo">
             </a>
 
+            <!-- Navigation -->
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li>
-                    <a href="/home" class="nav-link px-2 link-dark">Home</a>
-                </li>
-                <li>
-                    <a href="/about" class="nav-link px-2 link-dark">About</a>
-                </li>
-                <li>
-                    <a href="/products" class="nav-link px-2 link-dark">Products</a>
-                </li>
-                <li>
-                    <a href="/contact" class="nav-link px-2 link-dark">Contact</a>
-                </li>
+                <li><a href="/home" class="nav-link px-2 link-dark">Home</a></li>
+                <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
+                <li><a href="/products" class="nav-link px-2 link-dark">Products</a></li>
+                <li><a href="/contact" class="nav-link px-2 link-dark">Contact</a></li>
             </ul>
 
-            <div class="col-md-3 text-end">
-                <a href="{{ route('login') }}" class="btn btn-warning"
-                    style="border-radius: 25px; padding:10px; width:140px">
+            <!-- Login and Register Buttons -->
+            <div class="d-flex gap-2">
+                <a href="{{ route('login') }}" class="btn" style="border-radius: 25px; padding:10px; width:140px;">
                     Log in
+                </a>
+                <a href="{{ route('register') }}" class="btn btn-warning"
+                    style="border-radius: 25px; padding:10px; width:140px;">
+                    Register
                 </a>
             </div>
 
-            <!-- Modal -->
             <!-- Modal -->
             <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true"
                 style="background: none;">
@@ -64,9 +61,9 @@
                     </div>
                 </div>
             </div>
-
         </header>
     </div>
+
 
     <script>
         // Script untuk memuat konten login.blade.php ketika modal dibuka
