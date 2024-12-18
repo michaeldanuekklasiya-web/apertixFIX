@@ -4,7 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
-
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,10 +20,27 @@ Route::get('/dashboard', function () {
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Menampilkan form tambah foto
+    Route::get('/datafoto', function () {
+        return view('foto'); // View untuk form tambah foto
+    })->name('datafoto'); // Nama route: datafoto
 
-Route::get('/datafoto', function () {
-    return view('foto');
-})->middleware(['auth', 'verified'])->name('datafoto');
+    // Menyimpan data foto
+    Route::post('/datafoto', [PhotoController::class, 'store'])->name('datafoto.store');
+
+    // Menampilkan form edit foto berdasarkan ID
+    Route::get('/photos/{id}/edit', [PhotoController::class, 'edit'])->name('photos.edit');
+
+    // Menghapus foto berdasarkan ID
+    Route::delete('/photos/{id}', [PhotoController::class, 'destroy'])->name('photos.destroy');
+
+    // Resource route untuk photos (index, create, edit, update, delete)
+    Route::resource('photos', PhotoController::class)->except(['edit', 'destroy']);
+});
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,18 +48,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route untuk 'photos' yang hanya bisa diakses oleh user yang sudah login dan terverifikasi
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('photos', PhotoController::class); // Route resource sudah mencakup semua operasi CRUD termasuk 'store'
-    Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');  // Menampilkan daftar foto
-    Route::post('/datafoto', [PhotoController::class, 'store'])->name('datafoto');
-    Route::get('/photos/{id}/edit', [PhotoController::class, 'edit'])->name('photos.edit');
-Route::put('/photos/{id}', [PhotoController::class, 'update'])->name('photos.update');
-Route::delete('/photos/{id}', [PhotoController::class, 'destroy'])->name('photos.destroy');
-    Route::get('/datafoto', function () {
-        return view('foto');
-    })->name('datafoto');
-});
+
+// // Route untuk 'photos' yang hanya bisa diakses oleh user yang sudah login dan terverifikasi
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::resource('photos', PhotoController::class); // Route resource sudah mencakup semua operasi CRUD termasuk 'store'
+//     Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');  // Menampilkan daftar foto
+//     Route::post('/datafoto', [PhotoController::class, 'store'])->name('datafoto');
+//     Route::get('/photos/{id}/edit', [PhotoController::class, 'edit'])->name('photos.edit');
+// Route::put('/photos/{id}', [PhotoController::class, 'update'])->name('photos.update');
+// Route::delete('/photos/{id}', [PhotoController::class, 'destroy'])->name('photos.destroy');
+//     Route::get('/datafoto', function () {
+//         return view('foto');
+//     })->name('datafoto');
+// });
 
 
 
@@ -60,9 +78,9 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/products', function () {
-    return view('products');
-});
+// Route untuk halaman produk tanpa auth
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 

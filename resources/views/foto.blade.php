@@ -19,7 +19,8 @@
 
             <!-- Form Section -->
             <div class="md:col-span-2 bg-white shadow rounded-lg p-6">
-                <form action="{{ route('datafoto') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                <form action="{{ route('datafoto.store') }}" method="POST" enctype="multipart/form-data"
+                    class="space-y-6">
                     @csrf
                     <!-- Title Input -->
                     <div class="sm:col-span-4">
@@ -79,10 +80,20 @@
                             Save
                         </button>
                     </div>
+
+                    @if (session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4"
+                            role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                 </form>
             </div>
         </div>
     </div>
+
+
 
     <!-- JavaScript for Image Preview -->
     <script>

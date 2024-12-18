@@ -9,5 +9,6 @@ class Photo extends Model
 {
     use HasFactory;
 
+    // Daftar kolom yang boleh diisi secara mass assignment
     protected $fillable = ['title', 'description', 'image'];
 }

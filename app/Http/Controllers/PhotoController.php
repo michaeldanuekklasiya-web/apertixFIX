@@ -17,28 +17,32 @@ class PhotoController extends Controller
          // Kirim data foto ke view
          return view('dashboard', compact('photos'));
      }
-    public function store(Request $request)
-    {
+     public function store(Request $request)
+{
         // Validasi input
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048', // Validasi gambar
+            'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:10240',
         ]);
 
-        // Menyimpan gambar di storage
-        $imagePath = $request->file('image')->store('photos', 'public'); // Simpan di storage/app/public/photos
+        // Simpan file gambar
+        $imagePath = $request->file('image')->store('photos', 'public');
 
-        // Simpan data foto ke database
-        Photo::create([
+        // Data yang akan disimpan
+        $data = [
             'title' => $request->title,
             'description' => $request->description,
-            'image' => $imagePath, // Simpan path gambar
-        ]);
+            'image' => $imagePath,
+        ];
 
-        // Redirect setelah berhasil
-        return redirect()->route('photos.index')->with('success', 'Photo uploaded successfully!');
+        // Simpan ke database
+        $photo = Photo::create($data);
+
+         // Redirect kembali ke halaman sebelumnya dengan pesan sukses
+    return redirect()->back()->with('success', 'Photo uploaded successfully!');
     }
+
 
      // Menampilkan halaman edit
      public function edit($id)
